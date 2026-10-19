@@ -53,6 +53,6 @@ captioned MP4 next to the original."
 
 If no `cutbolt_*` tools appear, `cutbolt` isn't on your PATH. Install it as in step 1 and restart Claude Code.
 
-## Licence
+## Licence and privacy
 
-MIT. See [LICENSE](LICENSE). Report a security problem privately, as [SECURITY.md](SECURITY.md) says.
+MIT. See [LICENSE](LICENSE). [Privacy](PRIVACY.md): it runs on your computer and sends nothing. Report a security problem privately, as [SECURITY.md](SECURITY.md) says.
