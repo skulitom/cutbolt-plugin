@@ -34,15 +34,20 @@ captioned MP4 next to the original."
 ## What it runs, writes and sends
 
 - **What it runs:** the plugin starts `cutbolt --workspace <the folder you opened in Claude Code> mcp` from your PATH.
-  Cutbolt runs FFmpeg and ffprobe for media work.
-- **What it reads and writes:** files in that folder. It saves edits as revisions, writes outputs under new names and
-  never overwrites your originals. Files outside the folder need an input root you choose.
+  Cutbolt runs FFmpeg and ffprobe for media work, and, only if you have set one up, a local speech-recognition
+  runtime for transcripts.
+- **What it reads and writes:** only files inside that folder; files outside it are refused, so copy footage in
+  first. It saves edits as revisions, writes outputs under new names and never overwrites your originals. It keeps
+  its own state in a `.cutbolt/` folder there (the session store, the job queue, a cache and scratch files).
 - **What it sends:** the plugin sends nothing itself. Cutbolt runs on your machine and needs no account or hosted
   service.
-- **What it may fetch:** the plugin downloads nothing. If `cutbolt` isn't installed, the skills tell Claude to offer,
-  with your agreement, to install it as in step 1: build it with `cargo install --git
-  https://github.com/skulitom/Cutbolt --locked`, or download the release archive from GitHub and check it against
-  `SHA256SUMS`.
+- **What it may fetch or change:** the plugin downloads nothing. If `cutbolt` isn't installed, the skills tell Claude
+  to offer, with your agreement, to install it as in step 1: build it with `cargo install --git
+  https://github.com/skulitom/Cutbolt --locked`, or download the release archive from GitHub, check it against
+  `SHA256SUMS`, extract it and add its folder to your PATH. They also ask you to put FFmpeg and ffprobe on your PATH
+  (or set `CUTBOLT_FFMPEG` and `CUTBOLT_FFPROBE`); they name no download source for them.
+- **Platforms:** exports run as background jobs, which need Windows or Linux. The release also has a macOS build, but
+  macOS isn't a verification platform.
 - **Eval cases:** `evals/` holds test cases with mocked replies for `claude plugin eval`. Claude Code never loads them
   when you use the plugin.
 
