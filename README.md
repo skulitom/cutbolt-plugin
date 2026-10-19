@@ -38,7 +38,8 @@ captioned MP4 next to the original."
   runtime for transcripts.
 - **What it reads and writes:** only files inside that folder; files outside it are refused, so copy footage in
   first. It saves edits as revisions, writes outputs under new names and never overwrites your originals. It keeps
-  its own state in a `.cutbolt/` folder there (the session store, the job queue, a cache and scratch files).
+  its own state in a `.cutbolt/` folder there (the session store, the job queue, a cache and scratch files). Ducking,
+  loudness measurement and transcription briefly copy audio to your system's temporary folder and delete it after.
 - **What it sends:** the plugin sends nothing itself. Cutbolt runs on your machine and needs no account or hosted
   service.
 - **What it may fetch or change:** the plugin downloads nothing. If `cutbolt` isn't installed, the skills tell Claude
